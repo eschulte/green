@@ -1,0 +1,11 @@
+#+Title: Topher's idealistic dream
+#+Options: toc:nil
+
+* Zigbee
+A standard for communication protocols
+
+* waspmote
+A hardware device
+http://www.libelium.com/products/waspmote
+* TODO find a waterproof microphone
+* TODO figure out communication
