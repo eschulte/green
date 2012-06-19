@@ -7,5 +7,27 @@ A standard for communication protocols
 * waspmote
 A hardware device
 http://www.libelium.com/products/waspmote
+
 * TODO find a waterproof microphone
 * TODO figure out communication
+* possible configurations
+- group of waspmotes communicating w/zigbee
+  (needs a base station or something)
+- individual cell or smart phones
+
+* SMS text messages
+[[http://en.wikipedia.org/wiki/Short_Message_Service#Technical_details][SMS]] (short message service) text messages are implemented along the
+[[http://en.wikipedia.org/wiki/Short_message_service_technical_realisation_(GSM)][GSM]] recommendations.  Where GSM is the technical implementation upon
+which SMS text messages are based.
+
+It is possible to send these from the command line if you have a
+connection to a "dial-up" phone-line modem.  See [[http://howto.gumph.org/content/send-sms-messages-from-linux/][here]].
+
+* microphones
+http://interface.khm.de/index.php/lab/experiments/arduino-realtime-audio-processing/
+
+* shit to do
+- talk to Taylor about Arduinos
+- cell network integration
+- Arduino -- dev environment, can I get my hands on some
+- microphones
