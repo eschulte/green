@@ -1,5 +1,5 @@
 #+Title: Topher's idealistic dream
-#+Options: toc:nil
+#+Options: toc:nil ^:nil
 
 * Zigbee
 A standard for communication protocols
@@ -7,6 +7,21 @@ A standard for communication protocols
 * waspmote
 A hardware device
 http://www.libelium.com/products/waspmote
+
+* Arduino
+[[http://www.youtube.com/watch?v=fCxzA9_kg6s&feature=related][intro tutorial video]]
+
+Using the Makefile approach from [[http://github.com/mjoldfield/Arduino-Makefile.git][Arduino-Makefile.git]].
+
+added the following to the Makefile
+: BOARD_TAG     = uno
+: ARDUINO_PORT  = /dev/ttyUSB0
+: ARDUINO_LIBS  = /usr/share/arduino
+: AVRDUDE       = /usr/bin/avrdude
+: AVR_TOOLS_DIR = /usr/share/arduino/hardware/tools/avr
+: AVRDUDE_CONF  = /usr/share/arduino/hardware/tools/avrdude.conf
+
+works up until the =arvdude= command which returns
 
 * TODO find a waterproof microphone
 * TODO figure out communication
@@ -24,7 +39,9 @@ It is possible to send these from the command line if you have a
 connection to a "dial-up" phone-line modem.  See [[http://howto.gumph.org/content/send-sms-messages-from-linux/][here]].
 
 * microphones
-http://interface.khm.de/index.php/lab/experiments/arduino-realtime-audio-processing/
+- http://interface.khm.de/index.php/lab/experiments/arduino-realtime-audio-processing/
+- http://www.mtasales.com.au/voicetech/lav_min_vt500water.htm
+- http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
 
 * shit to do
 - talk to Taylor about Arduinos
