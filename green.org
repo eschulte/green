@@ -46,6 +46,33 @@ Added the following to the Makefile
 : --      atmega168: Arduino NG or older w/ ATmega168
 : --        atmega8: Arduino NG or older w/ ATmega8
 
+* misc ideas
+** shakers
+Is there a way to charge up a battery from shaking, like those fancy
+watches?  If so then the sensors could be powered off all the time,
+and they could have such shaker-chargers which would then;
+1. build up energy when a tree is shaking (e.g., from chainsawing)
+2. turn on
+3. sense
+4. report
+
+** Monkey Spies
+Setup a system which is powered off *all* of the time.
+
+This systems has a large button which when pressed
+1. turns it on
+2. it senses
+3. if it detects deforestation activity it then
+   - sends a text message
+   - does something fun for the button presser
+
+Train monkeys to press these buttons when something fishy is going on?
+
+** Text message alerts
+If there are indigenous people, and they are amenable, maybe do a
+[[http://www.wired.com/business/2009/03/africa-awaits-y/][text-eagle]] thing where they send alert texts and get back minutes (or
+much more) if deforestation is occurring.
+
 * TODO find a waterproof microphone
 * TODO figure out communication
 * possible configurations
