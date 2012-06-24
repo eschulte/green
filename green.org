@@ -1,13 +1,6 @@
 #+Title: Topher's idealistic dream
 #+Options: toc:nil ^:nil
 
-* Zigbee
-A standard for communication protocols
-
-* waspmote
-A hardware device
-http://www.libelium.com/products/waspmote
-
 * Arduino
 [[http://www.youtube.com/watch?v=fCxzA9_kg6s&feature=related][intro tutorial video]]
 
@@ -46,7 +39,7 @@ Added the following to the Makefile
 : --      atmega168: Arduino NG or older w/ ATmega168
 : --        atmega8: Arduino NG or older w/ ATmega8
 
-* misc ideas
+* Ideas
 ** shakers
 Is there a way to charge up a battery from shaking, like those fancy
 watches?  If so then the sensors could be powered off all the time,
@@ -73,14 +66,16 @@ If there are indigenous people, and they are amenable, maybe do a
 [[http://www.wired.com/business/2009/03/africa-awaits-y/][text-eagle]] thing where they send alert texts and get back minutes (or
 much more) if deforestation is occurring.
 
-* TODO find a waterproof microphone
-* TODO figure out communication
-* possible configurations
-- group of waspmotes communicating w/zigbee
-  (needs a base station or something)
-- individual cell or smart phones
+* Tasks
+- talk to Taylor about Arduinos
+- cell network integration
+- Arduino -- dev environment, can I get my hands on some
+- microphones
 
-* SMS text messages
+** TODO find a waterproof microphone
+** TODO figure out communication
+* Notes
+** SMS text messages
 [[http://en.wikipedia.org/wiki/Short_Message_Service#Technical_details][SMS]] (short message service) text messages are implemented along the
 [[http://en.wikipedia.org/wiki/Short_message_service_technical_realisation_(GSM)][GSM]] recommendations.  Where GSM is the technical implementation upon
 which SMS text messages are based.
@@ -88,13 +83,21 @@ which SMS text messages are based.
 It is possible to send these from the command line if you have a
 connection to a "dial-up" phone-line modem.  See [[http://howto.gumph.org/content/send-sms-messages-from-linux/][here]].
 
-* microphones
+** microphones
 - http://interface.khm.de/index.php/lab/experiments/arduino-realtime-audio-processing/
 - http://www.mtasales.com.au/voicetech/lav_min_vt500water.htm
 - http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
 
-* shit to do
-- talk to Taylor about Arduinos
-- cell network integration
-- Arduino -- dev environment, can I get my hands on some
-- microphones
+* other platforms
+** Zigbee
+A standard for communication protocols
+
+** waspmote
+A hardware device
+http://www.libelium.com/products/waspmote
+
+* possible configurations
+- group of waspmotes communicating w/zigbee
+  (needs a base station or something)
+- individual cell or smart phones
+
