@@ -1,9 +1,12 @@
+USER_LIB_PATH = /home/eschulte/research/green/libs
+
 # Board Information
 BOARD_TAG     = atmega328
 ARDUINO_PORT  = /dev/ttyUSB0
 
 # Arduino Install
-ARDUINO_LIBS  = /usr/share/arduino
+ARDUINO_LIBS  = avr/	\
+		./
 ARDUINO_DIR   = /usr/share/arduino
 
 # AVR tools
