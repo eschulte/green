@@ -14,3 +14,8 @@ AVRDUDE_CONF  = /usr/share/arduino/hardware/tools/avrdude.conf
 # Arduino Make
 ARDMK_DIR     = /usr/local/src/Arduino-Makefile/
 include ../Arduino.mk
+
+.PHONY: real-clean
+
+real-clean:
+	rm -rf build-cli/
