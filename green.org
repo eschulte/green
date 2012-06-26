@@ -1,44 +1,71 @@
 #+Title: Forrest Sensors
 #+Options: toc:nil ^:nil
 
-* Arduino
-[[http://www.youtube.com/watch?v=fCxzA9_kg6s&feature=related][intro tutorial video]]
+* Overview
+** Hardware
+- sound input
+- GPRS
+- solar panel
 
-** Working Makefile Build
-Using the Makefile tool from [[http://github.com/mjoldfield/Arduino-Makefile.git][Arduino-Makefile.git]].
+** Software
+- [[id:852ecdc0-4273-4000-86f5-69341db0c48c][FFT analysis software]]
+- [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
+- periodic communication reports (data format?)
 
-Added the following to the Makefile
-: BOARD_TAG     = atmega328
-: ARDUINO_PORT  = /dev/ttyUSB0
-: ARDUINO_LIBS  = /usr/share/arduino
-: AVRDUDE       = /usr/bin/avrdude
-: AVR_TOOLS_DIR = /usr/share/arduino/hardware/tools/avr
-: AVRDUDE_CONF  = /usr/share/arduino/hardware/tools/avrdude.conf
+* Tasks [3/6]
+- talk to Taylor about Arduinos
+- cell network integration
+- Arduino -- dev environment, can I get my hands on some
+- microphones
 
-** Board Types
-: --            uno: Arduino Uno
-: --      atmega328: Arduino Duemilanove w/ ATmega328
-: --      diecimila: Arduino Diecimila or Duemilanove w/ ATmega168
-: --        nano328: Arduino Nano w/ ATmega328
-: --           nano: Arduino Nano w/ ATmega168
-: --       mega2560: Arduino Mega 2560 or Mega ADK
-: --           mega: Arduino Mega (ATmega1280)
-: --       leonardo: Arduino Leonardo
-: --        mini328: Arduino Mini w/ ATmega328
-: --           mini: Arduino Mini w/ ATmega168
-: --       ethernet: Arduino Ethernet
-: --            fio: Arduino Fio
-: --          bt328: Arduino BT w/ ATmega328
-: --             bt: Arduino BT w/ ATmega168
-: --     lilypad328: LilyPad Arduino w/ ATmega328
-: --        lilypad: LilyPad Arduino w/ ATmega168
-: --       pro5v328: Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega328
-: --          pro5v: Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega168
-: --         pro328: Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega328
-: --            pro: Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega168
-: --      atmega168: Arduino NG or older w/ ATmega168
-: --        atmega8: Arduino NG or older w/ ATmega8
+** DONE FFT analysis software
+   :PROPERTIES:
+   :ID:       852ecdc0-4273-4000-86f5-69341db0c48c
+   :END:
+file:fft/fft.ino
 
+*** Links
+- http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1286718155
+- http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
+- http://www.dtic.upf.edu/~jlozano/interfaces/blow_sensor.html
+- http://www.nerdkits.com/videos/sound_meter/
+
+** DONE serial interface
+Set the following terminal characteristics for =/dev/ttyUSB0=.
+#+begin_src sh
+  stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel \
+      -opost -onlcr -isig -icanon -iexten \
+      -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+#+end_src
+
+Then connect to it using GNU screen with.
+#+begin_src sh
+  screen -c /dev/null /dev/ttyUSB0 9600
+#+end_src
+
+For more see http://arduino.cc/playground/Interfacing/LinuxTTY.
+
+** DONE combined serial interface and FFT
+Now printing out all 64 sensed values through the serial computer interface.
+
+** TODO Compile with the SMS library
+- [[http://wiki.groundlab.cc/doku.php?id=gsm_arduino_library][Instructions]]
+- [[http://github.com/GROUNDLAB/GSM-ARDUINO.git][Library git repository]]
+
+** TODO SMS Communication
+   :PROPERTIES:
+   :ID:       d3ed4558-5af2-46a4-b3b1-f95008ad9971
+   :END:
+
+** TODO Format for text reports
+see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][long-sms-text-messages-and-the-160-character-limit]]
+- Limited to 60 characters
+- characters are 7-bit's long (restricted English and some symbols)
+- 140 Bytes
+- may also send 70 characters of Unicode UCS-2
+
+** find a waterproof microphone
+** figure out communication
 * Ideas
 ** shakers
 Is there a way to charge up a battery from shaking, like those fancy
@@ -75,50 +102,46 @@ much more) if deforestation is occurring.
 If they could also send GPS coordinates, and maybe pictures of the
 logging that would also be awesome.
 
-* Tasks
-- talk to Taylor about Arduinos
-- cell network integration
-- Arduino -- dev environment, can I get my hands on some
-- microphones
-
-** DONE FFT analysis software
-   :PROPERTIES:
-   :ID:       852ecdc0-4273-4000-86f5-69341db0c48c
-   :END:
-file:fft/fft.ino
-
-*** Links
-- http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1286718155
-- http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
-- http://www.dtic.upf.edu/~jlozano/interfaces/blow_sensor.html
-- http://www.nerdkits.com/videos/sound_meter/
-
-** DONE serial interface
-Set the following terminal characteristics for =/dev/ttyUSB0=.
-#+begin_src sh
-  stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel \
-      -opost -onlcr -isig -icanon -iexten \
-      -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
-#+end_src
-
-Then connect to it using GNU screen with.
-#+begin_src sh
-  screen -c /dev/null /dev/ttyUSB0 9600
-#+end_src
-
-For more see http://arduino.cc/playground/Interfacing/LinuxTTY.
-
-** TODO combined serial interface and FFT
-
-
-** TODO SMS Communication
-   :PROPERTIES:
-   :ID:       d3ed4558-5af2-46a4-b3b1-f95008ad9971
-   :END:
-
-** find a waterproof microphone
-** figure out communication
 * Notes
+** Arduino
+[[http://www.youtube.com/watch?v=fCxzA9_kg6s&feature=related][intro tutorial video]]
+
+*** Working Makefile Build
+Using the Makefile tool from [[http://github.com/mjoldfield/Arduino-Makefile.git][Arduino-Makefile.git]].
+
+Added the following to the Makefile
+: BOARD_TAG     = atmega328
+: ARDUINO_PORT  = /dev/ttyUSB0
+: ARDUINO_LIBS  = avr     \
+:                 fft
+: AVRDUDE       = /usr/bin/avrdude
+: AVR_TOOLS_DIR = /usr/share/arduino/hardware/tools/avr
+: AVRDUDE_CONF  = /usr/share/arduino/hardware/tools/avrdude.conf
+
+*** Board Types
+: --            uno: Arduino Uno
+: --      atmega328: Arduino Duemilanove w/ ATmega328
+: --      diecimila: Arduino Diecimila or Duemilanove w/ ATmega168
+: --        nano328: Arduino Nano w/ ATmega328
+: --           nano: Arduino Nano w/ ATmega168
+: --       mega2560: Arduino Mega 2560 or Mega ADK
+: --           mega: Arduino Mega (ATmega1280)
+: --       leonardo: Arduino Leonardo
+: --        mini328: Arduino Mini w/ ATmega328
+: --           mini: Arduino Mini w/ ATmega168
+: --       ethernet: Arduino Ethernet
+: --            fio: Arduino Fio
+: --          bt328: Arduino BT w/ ATmega328
+: --             bt: Arduino BT w/ ATmega168
+: --     lilypad328: LilyPad Arduino w/ ATmega328
+: --        lilypad: LilyPad Arduino w/ ATmega168
+: --       pro5v328: Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega328
+: --          pro5v: Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega168
+: --         pro328: Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega328
+: --            pro: Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega168
+: --      atmega168: Arduino NG or older w/ ATmega168
+: --        atmega8: Arduino NG or older w/ ATmega8
+
 ** SMS text messages
 [[http://en.wikipedia.org/wiki/Short_Message_Service#Technical_details][SMS]] (short message service) text messages are implemented along the
 [[http://en.wikipedia.org/wiki/Short_message_service_technical_realisation_(GSM)][GSM]] recommendations.  Where GSM is the technical implementation upon
@@ -132,25 +155,16 @@ connection to a "dial-up" phone-line modem.  See [[http://howto.gumph.org/conten
 - http://www.mtasales.com.au/voicetech/lav_min_vt500water.htm
 - http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
 
-* other platforms
-** Zigbee
+** other platforms
+*** Zigbee
 A standard for communication protocols
 
-** waspmote
+*** waspmote
 A hardware device
 http://www.libelium.com/products/waspmote
 
-* possible configurations
+** possible configurations
 - group of waspmotes communicating w/zigbee
   (needs a base station or something)
 - individual cell or smart phones
 
-* Hardware
-- sound input
-- GPRS
-- solar panel
-
-* Software
-- [[id:852ecdc0-4273-4000-86f5-69341db0c48c][FFT analysis software]]
-- [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
-- periodic communication reports
