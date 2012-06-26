@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "set style fill solid"
+while read line;do
+    echo "plot '-' notitle with histogram"
+    echo "$line"|sed 's/|.*$//;'|tr ' ' '\n'
+    echo "e"
+done

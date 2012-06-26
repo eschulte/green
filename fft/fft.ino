@@ -8,7 +8,7 @@ int fix_fft(char fr[], char fi[], int m, int inverse);
 char im[(NUM_FREQS*2)];
 char data[(NUM_FREQS*2)];
 
-int pin_adc = 9;
+int pin_adc = 0;
 
 void setup() {
   // initialize the digital pin as an output.
@@ -18,13 +18,28 @@ void setup() {
 }
 
 void send_data(char *data){
-  int i;
-  Serial.print("[fft] " );
+  int i, val;
+  int total = 0;
   for(i=0;i<NUM_FREQS;++i){
-    Serial.print((int)data[i]);
-    if(i<(NUM_FREQS-1)) Serial.print(" ");
+    val = (int)data[i];
+    // if(val>99){
+    //   Serial.print(1);
+    //   val -= 100;
+    // } else {
+    //   Serial.print(" ");
+    // }
+    // if(val>9){
+    //   Serial.print(1);
+    //   val -= 10;
+    // } else {
+    //   Serial.print(" ");
+    // }
+    Serial.print(val);
+    Serial.print(" ");
   }
-  Serial.println("");
+  for(i=0;i<NUM_FREQS;i++) total += data[i];
+  Serial.print("| ");
+  Serial.println(total);
 }
 
 void loop(){

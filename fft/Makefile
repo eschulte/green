@@ -28,3 +28,12 @@ console:
 		-opost -onlcr -isig -icanon -iexten \
 		-echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts; \
 	screen -c /dev/null /dev/ttyUSB0 9600
+
+tail:
+	stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel -icrnl \
+		-opost -onlcr -isig -icanon -iexten \
+		-echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts ; \
+	tail -f /dev/ttyUSB0
+
+gnuplot:
+	../bin/run-gnuplot

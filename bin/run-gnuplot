@@ -1,0 +1,7 @@
+#!/bin/sh
+PIPE="/tmp/feedgnuplot"
+
+rm -f "$PIPE"
+mkfifo "$PIPE"
+gnuplot < "$PIPE" &
+cat /dev/ttyUSB0|../bin/to-gnuplot > "$PIPE"
