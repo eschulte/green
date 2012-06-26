@@ -12,7 +12,7 @@
 - [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
 - periodic communication reports (data format?)
 
-* Tasks [3/6]
+* Tasks [4/6]
 - talk to Taylor about Arduinos
 - cell network integration
 - Arduino -- dev environment, can I get my hands on some
@@ -48,7 +48,9 @@ For more see http://arduino.cc/playground/Interfacing/LinuxTTY.
 ** DONE combined serial interface and FFT
 Now printing out all 64 sensed values through the serial computer interface.
 
-** TODO Compile with the SMS library
+** CANCELED Compile with the SMS library
+   - State "CANCELED"   from "TODO"       [2012-06-26 Tue 14:11] \\
+     looks my Duemilanove may have insufficient Serial ports for this sketch
 - [[http://wiki.groundlab.cc/doku.php?id=gsm_arduino_library][Instructions]]
 - [[http://github.com/GROUNDLAB/GSM-ARDUINO.git][Library git repository]]
 
