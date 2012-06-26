@@ -25,12 +25,12 @@ void setup() {
 }
 
 void send_data(char *data){
-  int i;
-  Serial.print("[data] " );
+  int i, j;
+  Serial.print("[fft] " );
   for(i=0;i<NUM_FREQS;++i){
-    Serial.print(data[i]);
-    if(i<(NUM_FREQS-1))
-      Serial.print(" ");
+    j = (int)data[i];
+    Serial.print(j);
+    if(i<(NUM_FREQS-1)) Serial.print(" ");
   }
   Serial.println("");
 }
