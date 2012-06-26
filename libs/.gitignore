@@ -1,0 +1,5 @@
+# This directory holds the following git repository.
+# https://github.com/GROUNDLAB/GSM-ARDUINO
+
+# Maybe should have used a gitmodule, but they're often a pain.
+Gsm
