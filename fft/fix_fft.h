@@ -2,7 +2,7 @@
 #ifndef FIXFFT_H
 #define FIXFFT_H
 
-#include <WProgram.h>
+#include <pins_arduino.h>
 
 /*
   fix_fft() - perform forward/inverse fast Fourier transform.

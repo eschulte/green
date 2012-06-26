@@ -1,6 +1,6 @@
 #include <avr/pgmspace.h>
 #include "fix_fft.h"
-#include <WProgram.h>
+#include <pins_arduino.h>
 
 /* fix_fft.c - Fixed-point in-place Fast Fourier Transform  */
 
