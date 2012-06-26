@@ -1,4 +1,4 @@
-#+Title: Topher's idealistic dream
+#+Title: Forrest Sensors
 #+Options: toc:nil ^:nil
 
 * Arduino
@@ -49,6 +49,12 @@ and they could have such shaker-chargers which would then;
 3. sense
 4. report
 
+** Orangutan Life Alert
+Equip orangutans with a life-alert type pendant, which they could
+activate to text their current GPS coordinates to some external
+monitoring system.  They could then /maybe/ use such a system to call
+for help when something fishy (logging, burning, etc...) is going on.
+
 ** Monkey Spies
 Setup a system which is powered off *all* of the time.
 
@@ -66,14 +72,34 @@ If there are indigenous people, and they are amenable, maybe do a
 [[http://www.wired.com/business/2009/03/africa-awaits-y/][text-eagle]] thing where they send alert texts and get back minutes (or
 much more) if deforestation is occurring.
 
+If they could also send GPS coordinates, and maybe pictures of the
+logging that would also be awesome.
+
 * Tasks
 - talk to Taylor about Arduinos
 - cell network integration
 - Arduino -- dev environment, can I get my hands on some
 - microphones
 
-** TODO find a waterproof microphone
-** TODO figure out communication
+** TODO FFT analysis software
+   :PROPERTIES:
+   :ID:       852ecdc0-4273-4000-86f5-69341db0c48c
+   :END:
+file:fft/fft.ino
+
+*** Links
+- http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1286718155
+- http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
+- http://www.dtic.upf.edu/~jlozano/interfaces/blow_sensor.html
+- http://www.nerdkits.com/videos/sound_meter/
+
+** TODO SMS Communication
+   :PROPERTIES:
+   :ID:       d3ed4558-5af2-46a4-b3b1-f95008ad9971
+   :END:
+
+** find a waterproof microphone
+** figure out communication
 * Notes
 ** SMS text messages
 [[http://en.wikipedia.org/wiki/Short_Message_Service#Technical_details][SMS]] (short message service) text messages are implemented along the
@@ -101,3 +127,12 @@ http://www.libelium.com/products/waspmote
   (needs a base station or something)
 - individual cell or smart phones
 
+* Hardware
+- sound input
+- GPRS
+- solar panel
+
+* Software
+- [[id:852ecdc0-4273-4000-86f5-69341db0c48c][FFT analysis software]]
+- [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
+- periodic communication reports
