@@ -6,7 +6,7 @@ ARDUINO_PORT  = /dev/ttyUSB0
 
 # Arduino Install
 ARDUINO_LIBS  = avr/	\
-		./
+		fft/
 ARDUINO_DIR   = /usr/share/arduino
 
 # AVR tools
