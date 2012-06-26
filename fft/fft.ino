@@ -25,11 +25,10 @@ void setup() {
 }
 
 void send_data(char *data){
-  int i, j;
+  int i;
   Serial.print("[fft] " );
   for(i=0;i<NUM_FREQS;++i){
-    j = (int)data[i];
-    Serial.print(j);
+    Serial.print((int)data[i]);
     if(i<(NUM_FREQS-1)) Serial.print(" ");
   }
   Serial.println("");

@@ -15,7 +15,13 @@ AVRDUDE_CONF  = /usr/share/arduino/hardware/tools/avrdude.conf
 ARDMK_DIR     = /usr/local/src/Arduino-Makefile/
 include ../Arduino.mk
 
-.PHONY: real-clean
+.PHONY: real-clean console
 
 real-clean:
 	rm -rf build-cli/
+
+console:
+	stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel \
+		-opost -onlcr -isig -icanon -iexten \
+		-echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts; \
+	screen -c /dev/null /dev/ttyUSB0 9600
