@@ -2,6 +2,7 @@
 #include <pins_arduino.h>
 #define N_WAVE	256    /* full length of Sinewave[] */
 #define LOG2_N_WAVE 8	/* log2(N_WAVE) */
+#define NUM_FREQS 64    /* number of frequencies to collect */
 
 /*
   fix_fft() - perform forward/inverse fast Fourier transform.
@@ -15,19 +16,23 @@ char im[128];
 char data[128];
 
 int pin_adc = 9;
-int pin_led = 13;
-
-void blink_for(int time){
-  digitalWrite(13, HIGH);       // set the LED on
-  delay(time);                  // wait for some time
-  digitalWrite(13, LOW);        // set the LED off
-  delay(500);
-}
 
 void setup() {
   // initialize the digital pin as an output.
   // Pin 13 has an LED connected on most Arduino boards:
   pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void send_data(char *data){
+  int i;
+  Serial.print("[data] " );
+  for(i=0;i<NUM_FREQS;++i){
+    Serial.print(data[i]);
+    if(i<(NUM_FREQS-1))
+      Serial.print(" ");
+  }
+  Serial.println("");
 }
 
 void loop(){
@@ -47,12 +52,11 @@ void loop(){
       //this could be done with the fix_fftr function without the im array.
       fix_fft(data, im, 7, 0);
       // I am only interessted in the absolute value of the transformation
-      for (i=0; i<64;i++){
+      for (i=0; i<NUM_FREQS;i++){
         data[i] = sqrt(data[i] * data[i] + im[i] * im[i]);
-        total += data[i];
       }
-      //do something with the data values 1..64 and ignore im
-      blink_for((int)total);
+      // do something with the data values 1..64 and ignore im
+      send_data(data);
     }
 
     tt = millis();
@@ -60,9 +64,9 @@ void loop(){
 }
 
 /************************
- * 
+ *
  * FFT implementation
- * 
+ *
  ************************/
 
 const prog_int8_t Sinewave[N_WAVE-N_WAVE/4] PROGMEM = {
@@ -106,7 +110,7 @@ const prog_int8_t Sinewave[N_WAVE-N_WAVE/4] PROGMEM = {
 inline char FIX_MPY(char a, char b){
   //Serial.println(a);
   //Serial.println(b);
-  
+
   /* shift right one less bit (i.e. 15-1) */
   int c = ((int)a * (int)b) >> 6;
   /* last bit shifted out = rounding-bit */

@@ -81,7 +81,7 @@ logging that would also be awesome.
 - Arduino -- dev environment, can I get my hands on some
 - microphones
 
-** TODO FFT analysis software
+** DONE FFT analysis software
    :PROPERTIES:
    :ID:       852ecdc0-4273-4000-86f5-69341db0c48c
    :END:
@@ -92,6 +92,19 @@ file:fft/fft.ino
 - http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
 - http://www.dtic.upf.edu/~jlozano/interfaces/blow_sensor.html
 - http://www.nerdkits.com/videos/sound_meter/
+
+** DONE serial interface
+Set the following terminal characteristics for =/dev/ttyUSB0=.
+#+begin_src sh
+  stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel \
+      -opost -onlcr -isig -icanon -iexten \
+      -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+#+end_src
+
+Then connect to it using GNU screen with.
+#+begin_src sh
+  screen -c /dev/null /dev/ttyUSB0 9600
+#+end_src
 
 ** TODO SMS Communication
    :PROPERTIES:
