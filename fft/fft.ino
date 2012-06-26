@@ -1,8 +1,8 @@
 #include <avr/pgmspace.h>
 #include <pins_arduino.h>
-#define N_WAVE	256    /* full length of Sinewave[] */
-#define LOG2_N_WAVE 8	/* log2(N_WAVE) */
-#define NUM_FREQS 64    /* number of frequencies to collect */
+#define N_WAVE	256             /* full length of Sinewave[] */
+#define LOG2_N_WAVE 8           /* log2(N_WAVE) */
+#define NUM_FREQS 64            /* number of frequencies to collect */
 
 /*
   fix_fft() - perform forward/inverse fast Fourier transform.
