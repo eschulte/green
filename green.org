@@ -12,7 +12,7 @@
 - [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
 - periodic communication reports (data format?)
 
-* Tasks [5/7]
+* Tasks [6/8]
 - talk to Taylor about Arduinos
 - cell network integration
 - Arduino -- dev environment, can I get my hands on some
@@ -77,6 +77,22 @@ To turn on and connect to the board do some combination of;
    following.
    - [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][tutorial-arduino-and-gsm-cellular-part-one]]
    - http://zitseng.com/tech/gsm-at-commands
+
+** DONE Send an SMS text messages with =AT= commands
+The following sequence works, at the end of the SMS message, send a
+Cntr-Z, which is equal to =0x1A=.
+
+: AT+CMGF=1
+: OK
+: AT+CNMI=0,0,0,0,0
+: OK
+: AT#SMSMODE=0
+: OK
+: AT#BND=3
+: OK
+: AT+CMGS="14154837242"
+: > version 4, not out killing hobos at night anymore
+: +CMGS:  1
 
 ** TODO Format for text reports
 see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][long-sms-text-messages-and-the-160-character-limit]]
