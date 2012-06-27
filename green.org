@@ -60,6 +60,15 @@ Now printing out all 64 sensed values through the serial computer interface.
    :END:
 - [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][tutorial-arduino-and-gsm-cellular-part-one]]
 
+This requires version 0023 of the Arduino software.  Doesn't seem to
+be anything blocking the use of a later version, but no need changing
+the tutorial code for now.
+1. grab 0023 from http://arduino.cc/hu/Main/Software
+2. install it along side the base Arduino install into
+   : /usr/share/arduino-0023
+
+Then look at this nice [[file:sms-hw-check/check.pde][simple sketch]] from the above tutorial.
+
 ** TODO Format for text reports
 see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][long-sms-text-messages-and-the-160-character-limit]]
 - Limited to 60 characters
