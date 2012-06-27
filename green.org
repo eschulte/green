@@ -12,7 +12,7 @@
 - [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
 - periodic communication reports (data format?)
 
-* Tasks [4/6]
+* Tasks [4/7]
 - talk to Taylor about Arduinos
 - cell network integration
 - Arduino -- dev environment, can I get my hands on some
@@ -75,6 +75,16 @@ see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][
 - characters are 7-bit's long (restricted English and some symbols)
 - 140 Bytes
 - may also send 70 characters of Unicode UCS-2
+
+** TODO direct terminal GSM interface
+The board is http://www.sparkfun.com/products/9311.
+
+According to the sparkfun page it should be possible to connect
+directly from the laptop (and with luck the laptop power supply will
+be sufficient).  Then open up a serial terminal connection, and begin
+sending =AT= commands.  The following should make a serial connection
+using GNU screen (updating the =/dev/tty= for your system).
+: screen -c /dev/null /dev/ttyUSB0 115200
 
 ** find a waterproof microphone
 ** figure out communication
@@ -153,6 +163,33 @@ Added the following to the Makefile
 : --            pro: Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega168
 : --      atmega168: Arduino NG or older w/ ATmega168
 : --        atmega8: Arduino NG or older w/ ATmega8
+
+** GSM boards
+*** What we have
+We have a [[http://www.sparkfun.com/products/9311][GE864 Evaluation Board]] and a [[http://www.sparkfun.com/products/281][GM862 Evaluation Board]], in
+either case we will need to add the following.
+- an external power supply of 5 Volts at 2 Amps
+- an external antenna, probably not a little one like [[http://www.sparkfun.com/products/675][this]] because
+  they only work in areas of really good coverage, rather we should
+  look for a bigger antenna like [[http://www.sparkfun.com/products/8724][this]] or some such.  I've seen the
+  "good" antennas described as those with long wires like you would
+  find in a car cell phone antenna.
+
+The GM862 can be purchased as a component in this [[http://www.sparkfun.com/products/280][GM862 Evaluation
+Kit]], which is no longer sold, but which should give an idea of the
+components needed.
+
+*** Other Options
+*** Tutorials
+- [[http://tinkerlog.com/2009/05/15/interfacing-arduino-with-a-telit-gm862/][Interfacing Arduino with a Telit GM862]] which appears to start with a
+  slightly more "bare bones" GMS board
+- [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][Tutorial: Arduino and GSM Cellular – Part One]], which requires a
+  [[http://littlebirdelectronics.com/products/cellular-shield-with-sm5100b][SM5100B GSM Cellular Shield]], which may be at about the right place
+  for combining easy of use and board complexity.  This board is
+  similar to those we have but without the USB interfaces and with
+  those pins already broken out, so maybe we just pop the USB
+  interface off of what we have and then use one of our existing
+  boards (will require soldering which is above my pay grade).
 
 ** SMS text messages
 [[http://en.wikipedia.org/wiki/Short_Message_Service#Technical_details][SMS]] (short message service) text messages are implemented along the
