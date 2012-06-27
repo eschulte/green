@@ -16,9 +16,9 @@ void setup() {
 
 void send_data(char *data){
   int i;
-  for(i=0;i<NUM_FREQS;++i){
+  for(i=(NUM_FREQS-1);i>=0;i--){
     Serial.print((int)data[i]);
-    if(i<(NUM_FREQS-1)) Serial.print(" ");
+    if(i != 0) Serial.print(" ");
   }
   Serial.println("");
 }
