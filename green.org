@@ -12,7 +12,7 @@
 - [[id:d3ed4558-5af2-46a4-b3b1-f95008ad9971][SMS Communication]]
 - periodic communication reports (data format?)
 
-* Tasks [4/7]
+* Tasks [5/7]
 - talk to Taylor about Arduinos
 - cell network integration
 - Arduino -- dev environment, can I get my hands on some
@@ -54,20 +54,29 @@ Now printing out all 64 sensed values through the serial computer interface.
 - [[http://wiki.groundlab.cc/doku.php?id=gsm_arduino_library][Instructions]]
 - [[http://github.com/GROUNDLAB/GSM-ARDUINO.git][Library git repository]]
 
-** TODO SMS Communication
+** DONE SMS Communication
    :PROPERTIES:
    :ID:       d3ed4558-5af2-46a4-b3b1-f95008ad9971
    :END:
-- [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][tutorial-arduino-and-gsm-cellular-part-one]]
+No need for fancy software, we can just send AT commands directly to a
+serial channel with the functionality included in the new arduino
+software.
 
-This requires version 0023 of the Arduino software.  Doesn't seem to
-be anything blocking the use of a later version, but no need changing
-the tutorial code for now.
-1. grab 0023 from http://arduino.cc/hu/Main/Software
-2. install it along side the base Arduino install into
-   : /usr/share/arduino-0023
-
-Then look at this nice [[file:sms-hw-check/check.pde][simple sketch]] from the above tutorial.
+To turn on and connect to the board do some combination of;
+1. ensure that the Telit GSM module is connected
+2. ensure the SIM card and the antenna are connected to the Telit
+3. plug in the usb cord
+4. connect to a terminal by running
+   : screen -c /dev/null /dev/ttyUSB0 115200,cs8
+5. and then press the =on/off= button on the board some number of
+   times -- the green "stat" light should light up if things are going
+   well (i.e., if the board is ready for commands)
+6. Once you start to see text at the terminal, or at least you are
+   able to type you're good to go and can start using the =AT=
+   commands.  Some good information on commands can be found at the
+   following.
+   - [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][tutorial-arduino-and-gsm-cellular-part-one]]
+   - http://zitseng.com/tech/gsm-at-commands
 
 ** TODO Format for text reports
 see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][long-sms-text-messages-and-the-160-character-limit]]
