@@ -3,7 +3,6 @@
 echo "set style fill solid"
 while read line;do
     echo "plot '-' notitle with histogram"
-    echo "$line"|sed 's/|.*$//;'|tr ' ' '\n'
-    # echo "$line"|sed 's/|.*$//; s/[[:digit:]]\+ [[:digit:]]\+ //;'|tr ' ' '\n'
+    echo "$line"|tr ' ' '\n'
     echo "e"
 done
