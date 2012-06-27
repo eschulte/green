@@ -58,6 +58,7 @@ Now printing out all 64 sensed values through the serial computer interface.
    :PROPERTIES:
    :ID:       d3ed4558-5af2-46a4-b3b1-f95008ad9971
    :END:
+- [[http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/][tutorial-arduino-and-gsm-cellular-part-one]]
 
 ** TODO Format for text reports
 see [[http://www.nowsms.com/long-sms-text-messages-and-the-160-character-limit][long-sms-text-messages-and-the-160-character-limit]]

@@ -1,6 +1,6 @@
 USER_LIB_PATH = /home/eschulte/research/green/libs
 
-# Board Information
+# Board Information (diecimila)
 BOARD_TAG     = atmega328
 ARDUINO_PORT  = /dev/ttyUSB0
 
