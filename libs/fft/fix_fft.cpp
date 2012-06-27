@@ -85,22 +85,12 @@ const prog_int8_t Sinewave[N_WAVE-N_WAVE/4] PROGMEM = {
   Scaling ensures that result remains 16-bit.
 */
 inline char FIX_MPY(char a, char b){
-  //Serial.println(a);
-  //Serial.println(b);
-  
   /* shift right one less bit (i.e. 15-1) */
   int c = ((int)a * (int)b) >> 6;
   /* last bit shifted out = rounding-bit */
   b = c & 0x01;
   /* last shift + rounding bit */
   a = (c >> 1) + b;
-
-  /*
-    Serial.println(Sinewave[3]);
-    Serial.println(c);
-    Serial.println(a);
-    while(1);*/
-
   return a;
 }
 
@@ -180,14 +170,6 @@ int fix_fft(char fr[], char fi[], int m, int inverse)
       j = m << k;
       /* 0 <= j < N_WAVE/2 */
       wr =  pgm_read_word_near(Sinewave + j+N_WAVE/4);
-
-      /*Serial.println("asdfasdf");
-        Serial.println(wr);
-        Serial.println(j+N_WAVE/4);
-        Serial.println(Sinewave[256]);
-
-        Serial.println("");*/
-
       wi = -pgm_read_word_near(Sinewave + j);
       if (inverse)
         wi = -wi;
