@@ -179,7 +179,11 @@ The GM862 can be purchased as a component in this [[http://www.sparkfun.com/prod
 Kit]], which is no longer sold, but which should give an idea of the
 components needed.
 
-*** Other Options
+*** Another Option
+Could do a [[http://www.open-electronics.org/arduino-gsm-shield/][arduino-gsm-shield]] which shouldn't be too expensive and
+should be *very* easy to connect and use (at least this should be good
+enough for a first prototype).
+
 *** Tutorials
 - [[http://tinkerlog.com/2009/05/15/interfacing-arduino-with-a-telit-gm862/][Interfacing Arduino with a Telit GM862]] which appears to start with a
   slightly more "bare bones" GMS board
