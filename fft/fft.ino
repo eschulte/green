@@ -1,7 +1,7 @@
 #include "fix_fft.h"
 #include <avr/pgmspace.h>
 #include <pins_arduino.h>
-#define NUM_FREQS 64 /* number of frequencies to collect */
+#define NUM_FREQS 80 /* number of frequencies to collect */
 
 int fix_fft(char fr[], char fi[], int m, int inverse);
 
