@@ -2,7 +2,7 @@
 
 echo "set style fill solid"
 echo "set yrange[0:30]"
-echo "set xrange[0:80]"
+echo "set xrange[0:64]"
 while read line;do
     echo "plot '-' notitle with histogram"
     echo "$line"|tr ' ' '\n'
