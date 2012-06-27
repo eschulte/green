@@ -204,6 +204,9 @@ It is possible to send these from the command line if you have a
 connection to a "dial-up" phone-line modem.  See [[http://howto.gumph.org/content/send-sms-messages-from-linux/][here]].
 
 ** microphones
+Maybe just buy working microphones, like the [[http://robosavvy.com/store/product_info.php/products_id/626][ZX-Sound]].
+
+*** Notes and Tutorials
 - http://interface.khm.de/index.php/lab/experiments/arduino-realtime-audio-processing/
 - http://www.mtasales.com.au/voicetech/lav_min_vt500water.htm
 - http://arduino.cc/playground/Main/InterfacingWithHardware#arstat
