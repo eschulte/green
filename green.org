@@ -255,3 +255,6 @@ much more) if deforestation is occurring.
 If they could also send GPS coordinates, and maybe pictures of the
 logging that would also be awesome.
 
+Here's an interesting article about a better way to pay people by
+their phone number for useful reports.
+[[http://newswatch.nationalgeographic.com/2012/07/04/the-invisible-bank-how-kenya-has-beaten-the-world-in-mobile-money/][the-invisible-bank-how-kenya-has-beaten-the-world-in-mobile-money]]
