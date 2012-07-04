@@ -215,7 +215,11 @@ http://www.libelium.com/products/waspmote
   (needs a base station or something)
 - individual cell or smart phones
 
-* Ideas
+* Ideas and Miscellany
+** A related arduino project under the "Federated Wiki"
+- [[https://github.com/WardCunningham/Smallest-Federated-Wiki][Federated Wiki]]
+- [[https://github.com/WardCunningham/Smallest-Federated-Wiki/tree/master/server/Wikiduino][Wikiduino]]
+
 ** shakers
 Is there a way to charge up a battery from shaking, like those fancy
 watches?  If so then the sensors could be powered off all the time,
