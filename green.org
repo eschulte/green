@@ -114,6 +114,16 @@ using GNU screen (updating the =/dev/tty= for your system).
 ** find a waterproof microphone
 ** figure out communication
 * Notes
+** Server-side -- (lets use express.js)
+So, since we're going with node.js to use javascript all the way
+through, I searched around for the recommended node web frameworks.
+
+It looks like [[http://expressjs.com/][express]] and [[http://geddyjs.org/][geddy]] are the main options, and of those I
+think *express* is the way to go mainly because of the comments [[http://stackoverflow.com/questions/3809539/choosing-a-web-application-framework-using-node-js][here]].
+
+Follow the instructions at http://expressjs.com/guide.html to launch a
+trivial express web application.
+
 ** Arduino
 [[http://www.youtube.com/watch?v=fCxzA9_kg6s&feature=related][intro tutorial video]]
 
