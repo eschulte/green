@@ -226,6 +226,10 @@ http://www.libelium.com/products/waspmote
 - individual cell or smart phones
 
 * Ideas and Miscellany
+
+** Another related project -- refuge.io
+http://refuge.io/
+
 ** A related arduino project under the "Federated Wiki"
 - [[https://github.com/WardCunningham/Smallest-Federated-Wiki][Federated Wiki]]
 - [[https://github.com/WardCunningham/Smallest-Federated-Wiki/tree/master/server/Wikiduino][Wikiduino]]
